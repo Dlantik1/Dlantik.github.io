@@ -1,18 +1,12 @@
 (function () {
   'use strict';
 
-  /* ------------------------------------------------------------------ */
-  /* Waves init                                                          */
-  /* ------------------------------------------------------------------ */
   var canvas = document.getElementById('waves');
   if (canvas && window.FloatingWaves) {
     // rgb(#156c6a) — нежный неоновый акцент из ТЗ
     new window.FloatingWaves(canvas, { color: '21, 108, 106' });
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Тема: свитчер + системная тема + localStorage                       */
-  /* ------------------------------------------------------------------ */
   var root = document.documentElement;
   var themeInput = document.getElementById('theme-input');
   var media = window.matchMedia('(prefers-color-scheme: light)');
@@ -25,7 +19,6 @@
     }
   }
 
-  // Синхронизируем чекбокс с уже выставленной (в <head>) темой.
   applyTheme(root.getAttribute('data-theme') || 'dark', false);
 
   if (themeInput) {
@@ -34,21 +27,17 @@
     });
   }
 
-  // Если пользователь не выбирал тему вручную — следуем за системной.
   media.addEventListener('change', function (e) {
     var hasManual = false;
     try { hasManual = !!localStorage.getItem('theme'); } catch (err) {}
     if (!hasManual) applyTheme(e.matches ? 'light' : 'dark', false);
   });
 
-  /* ------------------------------------------------------------------ */
-  /* Scramble-эффект для ника                                            */
-  /* ------------------------------------------------------------------ */
   function scrambleText(el, finalText, opts) {
     opts = opts || {};
     var glyphs = opts.glyphs || 'ABCDEFGHIJKLMNOPQRSTUVWXYZ!<>-_\\/[]{}—=+*^?#';
-    var frameRate = opts.frameRate || 28; // мс между кадрами обновления
-    var lockStep = opts.lockStep || 3;    // через сколько кадров фиксируется след. символ
+    var frameRate = opts.frameRate || 28;
+    var lockStep = opts.lockStep || 3; 
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reduced) {
@@ -96,9 +85,6 @@
     }
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Spotlight-нав для соц. сетей (focus-ring)                            */
-  /* ------------------------------------------------------------------ */
   var social = document.querySelector('.social');
   var ring = document.getElementById('social-ring');
 
@@ -124,9 +110,6 @@
     });
   }
 
-  /* ------------------------------------------------------------------ */
-  /* Копирование в буфер (Discord / почта)                               */
-  /* ------------------------------------------------------------------ */
   var toast = document.getElementById('toast');
   var toastTimer = null;
 
@@ -177,9 +160,6 @@
     });
   });
 
-  /* ------------------------------------------------------------------ */
-  /* Мелочи                                                               */
-  /* ------------------------------------------------------------------ */
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
