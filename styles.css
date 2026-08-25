@@ -1,11 +1,8 @@
-/* ==========================================================================
-   Tokens
-   ========================================================================== */
 :root {
   --accent: #176c6d;
   --accent-glow: #156c6a;
   --accent-rgb: 23, 108, 109;
-  --nick: #176b6d; /* статичный цвет ника, отдельно от основного акцента */
+  --nick: #176b6d;
 
   --radius: 10px;
   --border-w: 1px;
@@ -44,9 +41,6 @@
   * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
 
-/* ==========================================================================
-   Reset & base
-   ========================================================================== */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 
@@ -63,7 +57,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Фирменное выделение текста */
 ::selection {
   background: var(--accent);
   color: #f4fbfb;
@@ -83,9 +76,6 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   border-radius: 4px;
 }
 
-/* ==========================================================================
-   Фоновая анимация волн
-   ========================================================================== */
 #waves {
   position: fixed;
   inset: 0;
@@ -105,9 +95,6 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   background: radial-gradient(ellipse at 50% 0%, transparent 0%, var(--bg) 78%);
 }
 
-/* ==========================================================================
-   Topbar
-   ========================================================================== */
 .topbar {
   position: relative;
   z-index: 5;
@@ -124,9 +111,6 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   color: var(--text-dim);
 }
 
-/* ==========================================================================
-   Layout
-   ========================================================================== */
 main { position: relative; z-index: 2; }
 
 .hero {
@@ -139,9 +123,6 @@ main { position: relative; z-index: 2; }
   padding: 40px 20px 90px;
 }
 
-/* ==========================================================================
-   Аватар
-   ========================================================================== */
 .avatar-wrap {
   position: relative;
   width: 128px;
@@ -174,9 +155,6 @@ main { position: relative; z-index: 2; }
   box-shadow: 0 0 0 6px var(--bg), 0 0 24px rgba(var(--accent-rgb), 0.35);
 }
 
-/* ==========================================================================
-   Ник (scramble)
-   ========================================================================== */
 .handle {
   margin: 0 0 10px;
   font-family: var(--font-mono);
@@ -195,9 +173,6 @@ main { position: relative; z-index: 2; }
 }
 .role .dot { color: rgba(var(--accent-rgb), 0.7); padding: 0 2px; }
 
-/* ==========================================================================
-   Bio-ссылка с underline-draw
-   ========================================================================== */
 .bio-link {
   position: relative;
   display: inline-block;
@@ -238,9 +213,6 @@ main { position: relative; z-index: 2; }
   font-weight: 600;
 }
 
-/* ==========================================================================
-   Соц. сети — spotlight nav
-   ========================================================================== */
 .social { position: relative; }
 
 .social ul {
@@ -316,15 +288,11 @@ main { position: relative; z-index: 2; }
   color: #f4fbfb;
 }
 
-/* когда подсветка активна, приподнимаем текст над заливкой */
 :root[data-theme='light'] .social li:hover a,
 :root[data-theme='light'] .social li:hover .copy-btn {
   color: #f4fbfb;
 }
 
-/* ==========================================================================
-   Scroll hint
-   ========================================================================== */
 .scroll-hint {
   position: absolute;
   bottom: 28px;
@@ -352,9 +320,6 @@ main { position: relative; z-index: 2; }
   100% { transform: translateY(0); opacity: 1; }
 }
 
-/* ==========================================================================
-   Секции
-   ========================================================================== */
 .stack, .contact {
   position: relative;
   z-index: 2;
@@ -401,9 +366,6 @@ main { position: relative; z-index: 2; }
   line-height: 1.7;
 }
 
-/* ==========================================================================
-   Footer
-   ========================================================================== */
 .footer {
   position: relative;
   z-index: 2;
@@ -417,9 +379,6 @@ main { position: relative; z-index: 2; }
 }
 .footer__sep { color: rgba(var(--accent-rgb), 0.5); }
 
-/* ==========================================================================
-   Toast (копирование в буфер)
-   ========================================================================== */
 .toast {
   position: fixed;
   left: 50%;
@@ -441,9 +400,6 @@ main { position: relative; z-index: 2; }
   transform: translate(-50%, 0);
 }
 
-/* ==========================================================================
-   Тумблер темы (адаптирован под #176c6d)
-   ========================================================================== */
 .switch {
   --primary: var(--accent);
   --on: #061010;
@@ -515,9 +471,6 @@ main { position: relative; z-index: 2; }
   outline-offset: 2px;
 }
 
-/* ==========================================================================
-   Адаптивность
-   ========================================================================== */
 @media (max-width: 560px) {
   .hero { min-height: 88svh; padding: 30px 16px 70px; }
 
@@ -535,7 +488,7 @@ main { position: relative; z-index: 2; }
 
   .social a, .social .copy-btn { padding: 8px 12px; font-size: 12.5px; }
 
-  .focus-ring { display: none; } /* на тач-устройствах нет ховера — не нужен */
+  .focus-ring { display: none; }
 
   .stack, .contact { padding: 44px 18px; }
 
