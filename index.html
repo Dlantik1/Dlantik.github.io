@@ -215,7 +215,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 99px 16px;
+    padding: 9px 16px;
     border-radius: 999px;
     font-size: 13.5px;
     font-family: var(--font-mono);
@@ -227,7 +227,7 @@
   .social svg { width: 15px; height: 15px; fill: currentColor; flex-shrink: 0; }
 
   .social li:hover a,
-  .social li:hover .copy-btn { color: #f4fbfb; }
+  .social li:hover .copy-btn { color: var(--text); }
 
   .focus-ring {
     --w: 0px; --h: 0px; --x: 0px; --y: 0px;
@@ -235,7 +235,7 @@
     top: 0; left: 0; z-index: 1;
     width: var(--w); height: var(--h);
     translate: var(--x) var(--y);
-    background: var(--accent);
+    border: 1.5px solid var(--accent);
     border-radius: 999px;
     opacity: 0;
     pointer-events: none;
